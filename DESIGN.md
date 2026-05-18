@@ -1,3 +1,3 @@
 # Design
 
-Executive Korean tech blog style: wide gradient hero, 960-1120px reading width, cards, tables, infographics, Noto Sans KR, mobile-first readable typography.
+Executive Korean technology blog style: wide hero, 960-1120px content width, card sections, responsive tables, Noto Sans KR, mobile-first readability, and `word-break: keep-all` for Korean text.
