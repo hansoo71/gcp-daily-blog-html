@@ -1,9 +1,14 @@
 # GCP Daily Blog HTML
 
-Google Cloud Blog monitoring job output repository.
+Daily Korean executive strategy blog generated from Google Cloud Blog collection.
 
-- Latest: `docs/index.html`
-- Dated output: `docs/20260518/index.html`
-- Source working copy: `src/20260518/index.html`
+- Latest Pages entry: `docs/index.html`
+- Dated output: `docs/20260519/index.html`
+- Local standalone: `/opt/data/out/gcp-daily-blog-20260519.html`
+- Source Markdown remains in LLM Wiki/GBrain local source; this repo stores HTML and visual assets only.
 
-This run had no newly saved GCP posts; the HTML uses latest local GCP Markdown as fallback context and marks same-day novelty as 확인 필요.
+## Run locally
+
+```bash
+python3 -m http.server -d docs 8000
+```
