@@ -1,6 +1,7 @@
-# Agent Guide
+# Agent Editing Guide
 
-- Keep source Markdown out of the public repo unless explicitly approved.
-- Store dated HTML under `src/YYYYMMDD/` and `docs/YYYYMMDD/`.
-- Keep `docs/index.html` as the latest entry and rewrite image paths to `./YYYYMMDD/images/...`.
-- Verify viewport, media queries, Noto Sans KR, at least three `blog-image` references, and image file existence before commit.
+- Keep `src/YYYYMMDD/` and `docs/YYYYMMDD/` synchronized.
+- `docs/index.html` is the latest Pages entry and must rewrite dated image paths correctly.
+- Do not commit secrets or tokenized remotes.
+- Preserve source URLs and mark unclear evidence as `확인 필요`.
+- Generated images live under dated `images/` folders and prompt logs must be kept with the dated artifact.
