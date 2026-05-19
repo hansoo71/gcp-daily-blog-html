@@ -1,141 +1,176 @@
 <!doctype html>
-<html lang='ko'>
+<html lang="ko">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>GCP Daily Strategy Blog — Agentic Data Layer와 Streaming AI | 2026-05-19</title>
-  <meta name='description' content='Google Cloud 신규 블로그를 기반으로 Enterprise AI, Data, Cloud 관점에서 agentic data layer와 streaming AI의 전략적 의미를 분석합니다.'>
-  <meta name='keywords' content='Google Cloud, GCP, BigQuery, Agentic Data Cloud, Streaming AI, Enterprise AI, Data Governance'>
-  <meta property='og:title' content='GCP Daily Strategy Blog — Agentic Data Layer와 Streaming AI'>
-  <meta property='og:description' content='기업 AI·Data·Cloud 리더를 위한 Google Cloud 일일 전략형 블로그.'>
-  <meta property='og:type' content='article'>
-  <meta property='og:image' content='./20260519/images/image-01.png'>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Google Cloud I/O 26 이후: Agentic Enterprise와 Data Agent 실행 전략</title>
+  <meta name="description" content="2026년 5월 20일 수집된 Google Cloud AI & ML, Data Analytics 블로그를 바탕으로 기업 AI·Data·Cloud 전략 관점에서 정리한 일일 전략형 블로그." />
+  <meta name="keywords" content="Google Cloud, Gemini Enterprise, Data Agent Kit, Agentic Enterprise, Vertex AI, BigQuery, Enterprise AI, AI Governance" />
+  <meta property="og:title" content="Google Cloud I/O 26 이후: Agentic Enterprise와 Data Agent 실행 전략" />
+  <meta property="og:description" content="2026년 5월 20일 수집된 Google Cloud AI & ML, Data Analytics 블로그를 바탕으로 기업 AI·Data·Cloud 전략 관점에서 정리한 일일 전략형 블로그." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="./20260520/images/image-01.png" />
+  <meta property="article:published_time" content="2026-05-20" />
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
-  :root {--bg:#f6f8fc;--ink:#111827;--muted:#5b6472;--card:#ffffff;--line:#dbe3ef;--blue:#2563eb;--green:#00a884;--purple:#7c3aed;--navy:#0b1736;}
-  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;font-size:17px;line-height:1.72;word-break:keep-all;overflow-wrap:break-word;text-wrap:pretty} a{color:var(--blue);font-weight:700} .wrap{max-width:1080px;margin:0 auto;padding:28px 22px} .hero{background:linear-gradient(135deg,#0b1736 0%,#173b77 48%,#07594f 100%);color:#fff;border-radius:32px;padding:50px 44px;margin-top:20px;box-shadow:0 24px 70px rgba(15,23,42,.22)} .kicker{letter-spacing:.08em;text-transform:uppercase;color:#b8fff0;font-size:.82rem;font-weight:900} h1{font-size:clamp(2.1rem,5vw,4.5rem);line-height:1.08;margin:14px 0} .lead{font-size:clamp(1.05rem,2vw,1.32rem);max-width:880px;color:#e6eefc} .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px} .pill{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);border-radius:999px;padding:8px 14px;font-weight:700} .blog-image{max-width:100%;height:auto;display:block;border-radius:24px;margin:28px auto;box-shadow:0 18px 50px rgba(15,23,42,.18)} section{margin:42px 0} h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.2;margin:0 0 18px;color:var(--navy)} h3{font-size:1.2rem;line-height:1.35;margin:8px 0 10px} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px} .card,.source-card,.message{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 10px 30px rgba(15,23,42,.06)} .message{border-left:7px solid var(--green);font-size:1.12rem} .eyebrow{font-size:.86rem;color:var(--muted);font-weight:900;letter-spacing:.03em} .source-card ul{padding-left:1.2em} .techline{color:#0f766e;font-weight:800;font-size:.95rem} .infographic{background:#0b1736;color:#fff;border-radius:28px;padding:28px} .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:20px} .step{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:18px} .step b{display:block;color:#b8fff0;margin-bottom:6px} .table-wrap{overflow-x:auto;background:#fff;border-radius:20px;border:1px solid var(--line)} table{width:100%;border-collapse:collapse;min-width:760px} th,td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top} th{background:#eef4ff;text-align:left;color:#173b77} .appendix pre{white-space:pre-wrap;background:#111827;color:#e5e7eb;border-radius:18px;padding:20px;overflow:auto;font-size:.9rem} footer{color:var(--muted);font-size:.92rem;padding:30px 0 60px}
-  @media (max-width:768px){.wrap{padding:16px}.hero{padding:34px 22px;border-radius:24px}body{font-size:16.5px;line-height:1.68}.card,.source-card,.message{padding:20px;border-radius:20px}.meta{gap:8px}.pill{font-size:.88rem;padding:7px 11px}table{min-width:680px}.blog-image{border-radius:18px;margin:20px auto}}
-  @media (max-width:480px){body{font-size:16px;line-height:1.67}.hero{padding:28px 18px}.grid,.flow{grid-template-columns:1fr}h1{font-size:2rem}}
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
+    :root { --bg:#f6f8fc; --ink:#172033; --muted:#5f6b7a; --card:#ffffff; --blue:#1a73e8; --sky:#e8f0fe; --green:#0f9d58; --yellow:#fbbc04; --red:#ea4335; --line:#dfe6f3; --shadow:0 18px 48px rgba(25,45,80,.12); }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; color:var(--ink); background:linear-gradient(180deg,#eef4ff 0%,var(--bg) 32%,#fff 100%); font-size:17px; line-height:1.72; word-break:keep-all; overflow-wrap:break-word; text-wrap:pretty; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .hero { max-width:1180px; margin:0 auto; padding:64px 24px 34px; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:center; }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; padding:8px 13px; border-radius:999px; background:rgba(26,115,232,.1); color:#1557b0; font-weight:800; font-size:14px; }
+    h1 { font-size:clamp(34px,5vw,62px); line-height:1.08; letter-spacing:-.04em; margin:20px 0 18px; }
+    .lead { font-size:clamp(18px,2vw,22px); color:#3c4b63; max-width:720px; }
+    .hero-card { background:rgba(255,255,255,.82); border:1px solid rgba(26,115,232,.14); border-radius:30px; padding:18px; box-shadow:var(--shadow); backdrop-filter: blur(12px); }
+    .blog-image { max-width:100%; height:auto; display:block; border-radius:22px; box-shadow:0 12px 32px rgba(23,32,51,.12); border:1px solid rgba(255,255,255,.8); }
+    main { max-width:1080px; margin:0 auto; padding:18px 24px 72px; }
+    section { margin:34px 0; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 10px 28px rgba(25,45,80,.07); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+    .metric { border-left:5px solid var(--blue); }
+    .metric strong { display:block; font-size:28px; letter-spacing:-.02em; }
+    h2 { font-size:clamp(26px,3vw,38px); line-height:1.22; margin:0 0 18px; letter-spacing:-.03em; }
+    h3 { font-size:22px; margin:0 0 10px; }
+    .kicker { color:var(--blue); font-weight:900; margin-bottom:8px; }
+    .message { background:linear-gradient(135deg,#123b79,#1a73e8); color:white; border-radius:28px; padding:32px; box-shadow:var(--shadow); }
+    .message h2, .message p { color:white; }
+    .pillrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .pill { background:var(--sky); color:#1557b0; padding:8px 12px; border-radius:999px; font-weight:800; font-size:14px; }
+    .table-wrap { width:100%; overflow-x:auto; border-radius:18px; border:1px solid var(--line); background:white; }
+    table { border-collapse:collapse; width:100%; min-width:760px; }
+    th,td { padding:16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; } th { background:#f1f5fd; }
+    .timeline { display:grid; gap:14px; } .step { display:grid; grid-template-columns:56px minmax(0,1fr); gap:14px; align-items:start; }
+    .num { width:44px; height:44px; border-radius:14px; display:grid; place-items:center; color:white; background:var(--blue); font-weight:900; }
+    .source { font-size:14px; color:var(--muted); }
+    .appendix { background:#101828; color:#d8e2f3; border-radius:24px; padding:26px; font-size:14px; } .appendix h2,.appendix h3 { color:white; }
+    @media (max-width: 768px) {
+      body { font-size:16px; line-height:1.68; } .hero { grid-template-columns:1fr; padding:38px 18px 20px; } main { padding:10px 18px 50px; } .card,.message { padding:22px; border-radius:20px; } .hero-card { border-radius:22px; } .step { grid-template-columns:44px minmax(0,1fr); } .num { width:38px; height:38px; border-radius:12px; }
+    }
+    @media (max-width: 480px) {
+      body { font-size:16px; } h1 { font-size:34px; } .lead { font-size:17px; } .grid { grid-template-columns:1fr; } table { min-width:680px; } th,td { padding:13px; }
+    }
   </style>
 </head>
 <body>
-  <main class='wrap'>
-    <header class='hero'>
-      <div class='kicker'>GCP Daily Strategy · 2026-05-19</div>
-      <h1>Agentic Data Layer가 기업 AI의 다음 병목을 바꾼다</h1>
-      <p class='lead'>오늘 수집된 Google Cloud Data Analytics 블로그 2건은 같은 메시지를 가리킵니다. 기업 AI의 경쟁력은 “모델을 붙이는 것”에서 “실시간·의미·권한이 정리된 데이터 레이어를 agent가 안전하게 사용하는 것”으로 이동하고 있습니다.</p>
-      <div class='meta'><span class='pill'>신규 수집 2건</span><span class='pill'>Data Analytics 중심</span><span class='pill'>BigQuery · Pub/Sub · Dataflow · MCP</span></div>
-    </header>
-    <img src='./20260519/images/image-01.png' alt='Google Cloud agentic data layer and governed enterprise AI strategy illustration' class='blog-image' />
-
-    <section><div class='message'><b>핵심 메시지:</b> 한국 기업이 AI agent를 업무에 붙일 때 가장 먼저 설계해야 할 것은 챗봇 UI가 아니라, agent가 신뢰할 수 있는 데이터 노출 방식·실시간 context·IAM·semantic accuracy·비용 통제입니다.</div></section>
-
-    <section>
-      <h2>오늘 확인한 원문</h2>
-      <div class='grid'>
-<article class='source-card'>
-  <div class='eyebrow'>Google Cloud Blog - Data Analytics · 2026-05-18</div>
-  <h3>Building an Agentic Data Layer on Google Cloud: 5 Key Scenarios</h3>
-  <p>Learn how to build an Agentic Data Layer on Google Cloud with 5 architectural patterns, from static APIs to autonomous workflows using MCP.</p>
-  <ul><li>Learn how to build an Agentic Data Layer on Google Cloud with 5 architectural patterns, from static APIs to autonomous workflows using MCP.</li><li>To keep up, organizations must route fragmented data from SaaS, IoT, and legacy sources into secure, scalable endpoints.</li><li>However, moving to AI-driven exposure requires more than just connecting an LLM to a database, it requires a fundamental architectural shift to manage security, costs, and semantic accuracy.</li></ul>
-  <p class='techline'>Gemini · Gemini Enterprise · BigQuery · Looker · IAM · TPU</p>
-  <a href='https://cloud.google.com/blog/products/data-analytics/building-an-agentic-data-layer-on-google-cloud-5-key-scenarios' target='_blank' rel='noopener'>원문 보기</a>
-</article>
-
-<article class='source-card'>
-  <div class='eyebrow'>Google Cloud Blog - Data Analytics · 2026-05-18</div>
-  <h3>Streaming AI news from Next ‘26</h3>
-  <p>We added streaming AI capabilities to the Agentic Data Cloud at Google Cloud Next ‘26 to provide agents with real-time context.</p>
-  <ul><li>We added streaming AI capabilities to the Agentic Data Cloud at Google Cloud Next ‘26 to provide agents with real-time context.</li><li>Ingesting this data, extracting meaning and insights, and driving business decisions in real time has the potential to deliver transformational business value.The rise of agentic AI represents an opportunity for users to overcome the challenges inherent in real-time analytics.</li><li>But while agentic AI has the potential to accelerate adoption, users face a new set of challenges with effectively leveraging real-time data: Real-time context is hard to implement.</li></ul>
-  <p class='techline'>Gemini · Gemini Enterprise · BigQuery · Dataflow · Pub/Sub · Spanner · AlloyDB · Bigtable</p>
-  <a href='https://cloud.google.com/blog/products/data-analytics/streaming-ai-news-from-next26' target='_blank' rel='noopener'>원문 보기</a>
-</article></div>
+  <header class="hero">
+    <div>
+      <span class="eyebrow">GCP Daily Strategy Blog · 2026-05-20</span>
+      <h1>Google Cloud I/O 26 이후: Agentic Enterprise와 Data Agent 실행 전략</h1>
+      <p class="lead">오늘 신규 수집된 Google Cloud 블로그 2건은 “모델 발표”보다 더 중요한 변화를 보여준다. Google Cloud가 Gemini Enterprise, Agent Platform, Workspace, Data Agent Kit을 통해 기업의 업무·데이터·개발 환경 안으로 에이전트를 직접 밀어 넣고 있다는 점이다.</p>
+      <div class="pillrow"><span class="pill">Gemini Enterprise</span><span class="pill">Data Agent Kit</span><span class="pill">Agentic Enterprise</span><span class="pill">BigQuery · Looker · IAM</span></div>
+    </div>
+    <figure class="hero-card"><img src="./20260520/images/image-01.png" alt="Gemini Enterprise와 Agentic Enterprise 전략을 상징하는 클라우드 AI 관제실 일러스트" class="blog-image" /></figure>
+  </header>
+  <main>
+    <section class="grid">
+      <article class="card metric"><strong>2건</strong><span>오늘 신규 저장된 GCP 블로그</span></article>
+      <article class="card metric"><strong>6개</strong><span>점검한 Google Cloud 블로그 채널</span></article>
+      <article class="card metric"><strong>핵심 신호</strong><span>AI 에이전트가 “앱”에서 “업무·데이터 실행 계층”으로 이동</span></article>
     </section>
 
-    <section>
-      <h2>핵심 트렌드 분석</h2>
-      <div class='grid'>
-        <div class='card'><h3>1. Agentic Data Layer의 부상</h3><p>원문은 SQL 개발·정적 API·semantic layer·MCP 기반 workflow로 이어지는 데이터 노출 패턴을 제시합니다. 이는 데이터 플랫폼을 “사람이 조회하는 저장소”에서 “agent가 호출하는 제품화된 인터페이스”로 바꾸는 흐름입니다.</p></div>
-        <div class='card'><h3>2. 실시간 context의 전략화</h3><p>Streaming AI는 batch refresh와 긴 context window만으로는 해결하기 어려운 최신성 문제를 겨냥합니다. Pub/Sub, Dataflow, BigQuery, Spanner, AlloyDB, Bigtable 등이 agent memory와 결합되는 방향입니다.</p></div>
-        <div class='card'><h3>3. MCP와 거버넌스의 결합</h3><p>MCP는 agent와 도구·데이터 사이의 표준 접점으로 부상하고 있습니다. 다만 enterprise 환경에서는 IAM, 비용, 감사, semantic accuracy 통제가 함께 설계되어야 합니다.</p></div>
-      </div>
-      <img src='./20260519/images/image-02.png' alt='Five agentic data layer scenarios connecting enterprise data and AI agents' class='blog-image' />
+    <section class="message">
+      <div class="kicker">Executive Takeaway</div>
+      <h2>2026년형 엔터프라이즈 AI 경쟁은 ‘모델 선택’이 아니라 ‘에이전트가 안전하게 일할 수 있는 데이터·도구·거버넌스 면’을 누가 먼저 까느냐의 경쟁이다.</h2>
+      <p>Gemini Enterprise와 Data Agent Kit의 조합은 현업 생산성 도구, 개발자 IDE/CLI, 데이터 플랫폼을 하나의 에이전트 실행 환경으로 엮는다. 한국 기업은 단순 챗봇 PoC가 아니라 데이터 권한, 감사, 운영 KPI, 업무 책임 경계를 포함한 “Agentic Operating Model”을 먼저 설계해야 한다.</p>
     </section>
 
-    <section class='infographic'>
-      <h2 style='color:#fff'>기업 적용 관점: 데이터 레이어를 AI 운영체계로 재정의</h2>
-      <div class='flow'>
-        <div class='step'><b>Data Foundation</b>BigQuery와 operational DB의 품질·권한·계보 정리</div>
-        <div class='step'><b>Semantic Contract</b>업무 용어와 metric 정의를 agent가 오해하지 않도록 표준화</div>
-        <div class='step'><b>Agent Interface</b>API/MCP/tool endpoint를 최소권한·감사 가능하게 노출</div>
-        <div class='step'><b>Real-time Context</b>Pub/Sub·Dataflow로 이벤트 기반 최신 context 제공</div>
-        <div class='step'><b>Governed Ops</b>비용, latency, hallucination, data leakage를 운영 지표로 관리</div>
+    <section class="card">
+      <h2>1. 핵심 트렌드 분석: Agentic Enterprise가 제품군 전체를 관통한다</h2>
+      <p>Google I/O 26 관련 Cloud 블로그는 Gemini Omni, Google Antigravity, Gemini Spark, Workspace 기능을 한 묶음으로 제시한다. 메시지는 분명하다. AI는 더 이상 별도 콘솔에서 호출되는 기능이 아니라, Workspace·개발도구·데이터 플랫폼 안에서 사용자의 지시를 받아 실제 업무를 수행하는 상시 에이전트가 된다.</p>
+      <div class="grid">
+        <div class="card"><h3>업무 계층</h3><p>Gemini Spark와 Workspace 기능은 개인 업무 생산성에서 “자율 실행”으로 확장된다.</p></div>
+        <div class="card"><h3>개발 계층</h3><p>Antigravity와 Agent Platform 연계는 에이전트 기반 개발 경험을 조직 단위로 확장한다.</p></div>
+        <div class="card"><h3>데이터 계층</h3><p>Data Agent Kit은 에이전트가 기업 데이터에 접근하고 맥락을 얻는 방식을 표준화하려 한다.</p></div>
       </div>
     </section>
 
-    <section>
-      <h2>한국 기업 관점 시사점</h2>
-      <div class='grid'>
-        <div class='card'><h3>제조·금융·통신</h3><p>실시간 telemetry와 고객/거래 데이터가 agent 의사결정에 들어가려면 데이터 신선도와 권한 모델이 동시에 필요합니다. “실시간”은 기술 기능이 아니라 운영 책임입니다.</p></div>
-        <div class='card'><h3>공공·규제 산업</h3><p>망분리, 개인정보, 감사 로그, 내부 승인 workflow 때문에 agentic data layer는 중앙 플랫폼보다 domain별 통제된 data product 방식이 현실적입니다.</p></div>
-        <div class='card'><h3>그룹사·대기업</h3><p>계열사별 데이터 표준이 다르면 agent는 더 빨리 틀린 답을 만들 수 있습니다. semantic layer와 표준 metric catalog가 AI 확산의 선행 과제입니다.</p></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>실행 전략</h2>
-      <div class='table-wrap'><table><thead><tr><th>단계</th><th>목표</th><th>실행 포인트</th><th>성공 기준</th></tr></thead><tbody>
-        <tr><td>0~30일</td><td>AI-ready 데이터 후보 선정</td><td>BigQuery/DB/stream source 중 업무 가치와 리스크가 명확한 2~3개 use case 선정</td><td>권한·소유자·품질 기준 확정</td></tr>
-        <tr><td>30~60일</td><td>Agent interface 설계</td><td>정적 API, semantic layer, MCP tool 중 적합 패턴 선택</td><td>감사 로그와 최소권한 호출 검증</td></tr>
-        <tr><td>60~90일</td><td>Streaming context PoC</td><td>Pub/Sub·Dataflow 기반 최신 이벤트를 agent workflow에 연결</td><td>latency, 비용, 정확도, fallback 운영지표 확보</td></tr>
-        <tr><td>90일+</td><td>운영 거버넌스</td><td>정책, 평가, 모니터링, human review를 플랫폼 표준으로 전환</td><td>반복 가능한 enterprise AI 운영모델 확립</td></tr>
+    <section class="card">
+      <h2>2. 기술 변화의 의미: Data Agent Kit은 ‘에이전트용 데이터 면’을 만든다</h2>
+      <img src="./20260520/images/image-02.png" alt="Data Agent Kit이 IDE와 CLI에서 기업 데이터와 AI 에이전트를 연결하는 구조" class="blog-image" />
+      <p>Data Agent Kit은 VS Code, Claude Code, Codex, Antigravity CLI 같은 개발 환경에 데이터 엔지니어링·데이터 과학 스킬과 도구를 연결한다. 중요한 포인트는 “개발자가 데이터에 접근한다”가 아니라 “에이전트가 안전하게 데이터 컨텍스트, 메모리, 개인화에 접근한다”는 구조다.</p>
+      <div class="table-wrap"><table><thead><tr><th>변화</th><th>기존 방식</th><th>전략적 의미</th></tr></thead><tbody>
+        <tr><td>데이터 접근</td><td>툴·권한·쿼리 경로가 분산</td><td>에이전트용 공통 데이터 접근 패턴 필요</td></tr>
+        <tr><td>개발 경험</td><td>IDE, CLI, 데이터 콘솔이 분리</td><td>개발자 워크플로우 내부에서 AI가 데이터 작업을 수행</td></tr>
+        <tr><td>보안</td><td>사용자 권한 중심 통제</td><td>Agent Identity, IAM, 감사 로그, 승인 게이트가 필요</td></tr>
+        <tr><td>운영</td><td>PoC별 개별 연결</td><td>플랫폼팀이 재사용 가능한 agent-data harness를 제공해야 함</td></tr>
       </tbody></table></div>
-      <img src='./20260519/images/image-03.png' alt='Enterprise roadmap from data foundation to governed production AI operations' class='blog-image' />
     </section>
 
-    <section>
-      <h2>리스크와 거버넌스 체크리스트</h2>
-      <div class='grid'>
-        <div class='card'><h3>보안</h3><p>agent가 호출하는 tool endpoint마다 IAM, row/column-level security, service account 분리, 감사 로그를 적용해야 합니다.</p></div>
-        <div class='card'><h3>정확성</h3><p>semantic mismatch와 stale context는 모델 성능 문제가 아니라 데이터 계약 문제입니다. metric catalog와 freshness SLA가 필요합니다.</p></div>
-        <div class='card'><h3>비용</h3><p>agent workflow는 반복 호출과 대용량 context로 비용이 급증할 수 있습니다. query budget, caching, tool call rate limit을 설계해야 합니다.</p></div>
-        <div class='card'><h3>운영</h3><p>실시간 pipeline 장애 시 agent가 어떤 fallback을 사용할지, 언제 human review로 전환할지 사전에 정해야 합니다.</p></div>
+    <section class="card">
+      <h2>3. 기업 적용 관점: AI 플랫폼팀의 우선순위가 바뀐다</h2>
+      <p>이번 신호는 AI 플랫폼팀이 모델 API 제공자에서 “에이전트 실행 환경 운영자”로 이동해야 함을 뜻한다. BigQuery, Looker, Spanner, AlloyDB, IAM 같은 기존 클라우드 자산은 에이전트에게 바로 노출하기보다 정책화된 도구·스킬·컨텍스트 계층으로 감싸야 한다.</p>
+      <div class="timeline">
+        <div class="step"><div class="num">1</div><div><h3>Agent use case를 업무 단위로 정의</h3><p>문서 요약이 아니라 구매, 영업, 데이터 분석, 장애 대응처럼 책임·권한·성과가 있는 업무를 기준으로 우선순위를 잡는다.</p></div></div>
+        <div class="step"><div class="num">2</div><div><h3>데이터 접근 패턴 표준화</h3><p>BigQuery/Looker/DB 접근을 MCP·tool contract·권한 템플릿으로 정리하고, 사람 권한과 에이전트 권한을 분리한다.</p></div></div>
+        <div class="step"><div class="num">3</div><div><h3>관측성과 평가를 기본값으로 삽입</h3><p>요청, 도구 호출, 데이터 접근, 비용, 결과 품질을 추적해야 운영 가능한 Agentic Enterprise가 된다.</p></div></div>
       </div>
     </section>
 
-    <section>
-      <h2>출처 테이블</h2>
-      <div class='table-wrap'><table><thead><tr><th>발행일</th><th>문서</th><th>기술 키워드</th><th>원문</th></tr></thead><tbody><tr><td>2026-05-18</td><td>Building an Agentic Data Layer on Google Cloud: 5 Key Scenarios</td><td>Gemini, Gemini Enterprise, BigQuery, Looker, IAM, TPU</td><td><a href='https://cloud.google.com/blog/products/data-analytics/building-an-agentic-data-layer-on-google-cloud-5-key-scenarios'>link</a></td></tr>
-<tr><td>2026-05-18</td><td>Streaming AI news from Next ‘26</td><td>Gemini, Gemini Enterprise, BigQuery, Dataflow, Pub/Sub, Spanner</td><td><a href='https://cloud.google.com/blog/products/data-analytics/streaming-ai-news-from-next26'>link</a></td></tr></tbody></table></div>
+    <section class="card">
+      <h2>4. 한국 기업 관점 시사점</h2>
+      <p>한국 대기업은 이미 데이터 플랫폼과 그룹웨어, 보안 체계가 복잡하게 분화되어 있다. 따라서 Google Cloud의 방향성은 “새 AI 툴 도입”이라기보다 기존 업무·데이터·보안 거버넌스를 AI 에이전트 시대에 맞게 재배치하는 과제로 읽어야 한다.</p>
+      <div class="grid">
+        <div class="card"><h3>제조·유통</h3><p>수요예측, 품질, SCM 데이터를 에이전트가 조회·분석하려면 데이터 카탈로그와 권한 체계가 먼저 정리되어야 한다.</p></div>
+        <div class="card"><h3>금융·공공</h3><p>Agent action에 대한 승인, 설명가능성, 감사 로그를 설계하지 않으면 PoC 이후 production 확산이 막힌다.</p></div>
+        <div class="card"><h3>IT·플랫폼 조직</h3><p>개별 부서 챗봇이 아니라 공통 Agent Platform, 데이터 커넥터, 평가 체계를 제공하는 방식이 효율적이다.</p></div>
+      </div>
     </section>
 
-    <section class='appendix'>
-      <h2>이미지 프롬프트 로그</h2>
-      <pre># Image Prompt Log — GCP Daily Blog 20260519
+    <section class="card">
+      <h2>5. 실행 전략: 30-60-90일 로드맵</h2>
+      <img src="./20260520/images/image-03.png" alt="AI 에이전트 확산을 위한 IAM, 감사, 승인, 관측성 거버넌스 구조" class="blog-image" />
+      <div class="table-wrap"><table><thead><tr><th>기간</th><th>실행 과제</th><th>산출물</th><th>주의점</th></tr></thead><tbody>
+        <tr><td>30일</td><td>상위 5개 Agent use case 선정, 데이터 소스·권한 매핑</td><td>Use case canvas, data access matrix</td><td>현업 요구를 “챗봇”으로 축소하지 않기</td></tr>
+        <tr><td>60일</td><td>Data Agent Kit/Agent Platform 유사 구조로 파일럿 도구 체인 설계</td><td>Tool contract, IAM policy, logging baseline</td><td>에이전트 권한과 사람 권한 혼합 금지</td></tr>
+        <tr><td>90일</td><td>품질 평가, 비용 추적, 승인 게이트 포함한 production 후보 검증</td><td>운영 대시보드, 평가 리포트, 확산 기준</td><td>모델 성능만 보지 말고 업무 성과와 통제 가능성 측정</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="card">
+      <h2>6. 리스크와 거버넌스 고려사항</h2>
+      <ul>
+        <li><strong>권한 과다 부여:</strong> 에이전트가 사람 계정의 광범위한 권한을 그대로 상속하면 데이터 유출 위험이 커진다.</li>
+        <li><strong>도구 호출 책임 경계:</strong> 에이전트가 쿼리, 변경, 전송, 승인 같은 행위를 할 때 사람이 어디서 개입하는지 명확해야 한다.</li>
+        <li><strong>데이터 품질과 맥락:</strong> 잘못된 데이터 카탈로그나 stale 데이터는 에이전트 답변보다 더 위험한 자동 실행 오류를 만든다.</li>
+        <li><strong>비용·성능 관리:</strong> 멀티모달·장기 컨텍스트·도구 호출이 늘수록 비용 추적과 캐싱 전략이 필수다.</li>
+      </ul>
+    </section>
+
+    <section class="card source">
+      <h2>수집 출처</h2>
+      <ol>
+        <li><a href="https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud">Innovations from Google I/O 26 on Google Cloud</a> — Google Cloud Blog - AI & Machine Learning, 2026-05-20</li>
+        <li><a href="https://cloud.google.com/blog/products/data-analytics/data-agent-kit-brings-data-skills-and-tools-to-your-ide-or-cli">Data Agent Kit brings data skills and tools to your IDE or CLI</a> — Google Cloud Blog - Data Analytics, 2026-05-20</li>
+      </ol>
+      <p>확인 필요: 각 기능의 GA/Preview 상태, 한국 리전 지원, 가격·할당량, 조직별 보안 정책 적합성은 원문과 공식 문서에서 추가 확인이 필요하다.</p>
+    </section>
+
+    <section class="appendix">
+      <h2>이미지 프롬프트 부록</h2>
+      <pre># Image Prompt Log — GCP Daily Blog 20260520
 
 ## Image Prompt 1
-- 목적: Hero visual for executive strategy article.
-- 삽입 위치: Hero section below lead copy.
-- image2 prompt: Executive blog hero image for Korean enterprise leaders: Google Cloud agentic data layer, AI agents connecting BigQuery, streaming data, governance and cloud security. Modern premium editorial illustration, no logos, Korean business technology mood, clean abstract cloud architecture, blue green purple palette, no small unreadable text.
-- 권장 비율: 3:2 landscape.
-- alt 텍스트: Google Cloud agentic data layer and governed enterprise AI strategy illustration.
+- 목적: Hero image for the strategic blog opening.
+- 삽입 위치: Hero section and opening trend narrative.
+- image2 prompt: Executive technology blog illustration, Korean enterprise AI strategy. A modern cloud control room showing Gemini Enterprise agents, data pipelines, governance guardrails, and Korean enterprise decision makers. Premium editorial style, clean Google Cloud inspired colors, no logos, no tiny unreadable text. Include concise Korean title text inside the image: &#x27;Agentic Enterprise 전략&#x27;.
+- 권장 비율: 3:2 / 1536x1024
+- alt 텍스트: Gemini Enterprise와 Agentic Enterprise 전략을 상징하는 클라우드 AI 관제실 일러스트
 
 ## Image Prompt 2
-- 목적: Infographic visual for five agentic data layer scenarios.
-- 삽입 위치: 핵심 트렌드 분석 섹션.
-- image2 prompt: Korean executive technology blog infographic image: five scenarios of an agentic data layer on Google Cloud, data products, semantic layer, governance controls, real-time streaming and analytics. Premium flat editorial illustration, readable macro shapes, no brand logos, minimal or no text, blue and green cloud data mesh.
-- 권장 비율: 3:2 landscape.
-- alt 텍스트: Five agentic data layer scenarios connecting enterprise data and AI agents.
+- 목적: Data Agent Kit and enterprise data-agent architecture visualization.
+- 삽입 위치: Data/AI execution architecture section.
+- image2 prompt: Executive technology blog infographic, data agents embedded into developer tools and CLI, BigQuery Looker Spanner AlloyDB context flowing safely into AI agents. Clean editorial illustration for Korean enterprise readers, premium consulting report aesthetic, no official logos. Include concise Korean title text inside image: &#x27;Data Agent Kit 실행 구조&#x27;.
+- 권장 비율: 3:2 / 1536x1024
+- alt 텍스트: Data Agent Kit이 IDE와 CLI에서 기업 데이터와 AI 에이전트를 연결하는 구조
 
 ## Image Prompt 3
-- 목적: Strategy roadmap visual for enterprise adoption.
-- 삽입 위치: 실행 전략 및 거버넌스 섹션.
-- image2 prompt: Korean enterprise cloud strategy visual: C-level roadmap from data foundation to AI agents to governed production operations, with risk and security guardrails. Modern magazine-style illustration, human executives and engineers around abstract dashboards, no logos, no tiny text, high-end consulting blog aesthetic.
-- 권장 비율: 3:2 landscape.
-- alt 텍스트: Enterprise roadmap from data foundation to governed production AI operations.
+- 목적: Governance, risk, and scaling model visual.
+- 삽입 위치: Risk/governance and execution strategy section.
+- image2 prompt: Executive cloud AI governance illustration, risk and control model for agentic enterprise: IAM, audit logs, data boundaries, approval gates, observability dashboards, and AI agents. Sophisticated Korean business blog visual, no brand logos, no unreadable small text. Include concise Korean title text inside image: &#x27;거버넌스와 확산 전략&#x27;.
+- 권장 비율: 3:2 / 1536x1024
+- alt 텍스트: AI 에이전트 확산을 위한 IAM, 감사, 승인, 관측성 거버넌스 구조
 </pre>
     </section>
-    <footer>이 글은 Hermes cron이 Google Cloud Blog 신규 수집 Markdown을 기반으로 생성한 전략형 HTML 블로그입니다. 원문 사실은 링크된 Google Cloud Blog를 기준으로 후속 확인하세요.</footer>
   </main>
 </body>
 </html>
