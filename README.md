@@ -1,14 +1,10 @@
 # GCP Daily Blog HTML
 
-Daily Korean executive strategy blog generated from Google Cloud Blog collection.
+Daily strategic Korean executive blog generated from Google Cloud Blog collection.
 
-- Latest Pages entry: `docs/index.html`
-- Dated output: `docs/20260519/index.html`
-- Local standalone: `/opt/data/out/gcp-daily-blog-20260519.html`
-- Source Markdown remains in LLM Wiki/GBrain local source; this repo stores HTML and visual assets only.
+- Latest: `docs/index.html`
+- Dated output: `docs/20260520/index.html`
+- Source working copy: `src/20260520/index.html`
+- Local standalone: `/opt/data/out/gcp-daily-blog-20260520.html`
 
-## Run locally
-
-```bash
-python3 -m http.server -d docs 8000
-```
+Sources are official Google Cloud Blog posts summarized into local/LLM Wiki Markdown before HTML generation.
