@@ -1,7 +1,6 @@
-# Agent Editing Guide
+# Agent Guide
 
-- Keep `src/YYYYMMDD/` and `docs/YYYYMMDD/` synchronized.
-- `docs/index.html` is the latest Pages entry and must rewrite dated image paths correctly.
-- Do not commit secrets or tokenized remotes.
-- Preserve source URLs and mark unclear evidence as `확인 필요`.
-- Generated images live under dated `images/` folders and prompt logs must be kept with the dated artifact.
+- Keep Markdown collection in LLM Wiki/GBrain source, not in this repo.
+- Keep HTML/images under dated src/ and docs/ folders.
+- Do not commit credentials or full private source extracts.
+- Verify responsive tokens, image paths, and Pages paths after edits.
