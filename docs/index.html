@@ -1,16 +1,201 @@
-<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Google Cloud 일일 전략 브리핑 20260526</title><meta name='description' content='Enterprise AI·Data·Cloud 관점의 Google Cloud 블로그 일일 전략 분석'><meta property='og:title' content='Google Cloud 일일 전략 브리핑 20260526'><meta property='og:description' content='핵심 트렌드, 기업 적용 관점, 한국 기업 시사점, 실행 전략과 거버넌스 체크포인트'><meta property='og:type' content='article'><meta property='og:image' content='./20260526/images/image-01.png'><style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap');
-:root{--bg:#08111f;--panel:#101b2e;--card:#f8fafc;--ink:#122033;--muted:#607089;--blue:#4285f4;--green:#34a853;--yellow:#fbbc04;--red:#ea4335;--line:#dfe7f3}*{box-sizing:border-box}body{margin:0;font-family:'Noto Sans KR',system-ui,sans-serif;background:#eef4fb;color:var(--ink);font-size:17px;line-height:1.72;word-break:keep-all;overflow-wrap:break-word;text-wrap:pretty}a{color:#1a64d6}.hero{background:radial-gradient(circle at 20% 10%,rgba(66,133,244,.35),transparent 30%),linear-gradient(135deg,#07111f,#142643 55%,#092018);color:white;padding:74px 24px 54px}.wrap{max-width:1080px;margin:0 auto}.eyebrow{color:#9cc3ff;font-weight:800;letter-spacing:.08em;text-transform:uppercase}h1{font-size:clamp(2.15rem,5vw,4.7rem);line-height:1.08;margin:16px 0 18px;max-width:1000px}.lead{font-size:clamp(1.04rem,2vw,1.35rem);max-width:900px;color:#dce9ff}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);border-radius:999px;padding:8px 14px}main{max-width:1080px;margin:0 auto;padding:34px 20px 70px}section{margin:38px 0}.box,.card,.source-card{background:white;border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:0 18px 40px rgba(25,52,86,.08)}.key{border-left:8px solid var(--blue);background:#f5f9ff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card h3,.source-card h3{margin-top:0}.source-card span{display:block;color:var(--muted);font-size:.92rem;margin-bottom:8px}.blog-image{width:100%;max-width:100%;height:auto;display:block;border-radius:28px;margin:26px 0;box-shadow:0 22px 55px rgba(14,31,54,.18);border:1px solid rgba(255,255,255,.7)}.table-wrap{overflow-x:auto;background:white;border-radius:22px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eef5ff;text-align:left}.trend{display:flex;align-items:flex-start;gap:16px}.badge{flex:0 0 42px;height:42px;border-radius:14px;background:#e7f0ff;color:#1a64d6;display:grid;place-items:center;font-weight:800}footer{background:#08111f;color:#cbd7e7;padding:30px 20px}.appendix{font-size:.94rem;color:#34445c}@media (max-width:768px){body{font-size:16px;line-height:1.68}.hero{padding:48px 18px 38px}main{padding:24px 16px 52px}.box,.card,.source-card{padding:21px;border-radius:20px}.grid{grid-template-columns:1fr}.trend{display:block}.badge{margin-bottom:10px}table{min-width:680px}}@media (max-width:480px){body{font-size:16px}h2{font-size:1.45rem}.pill{width:100%}}
-</style></head><body><header class='hero'><div class='wrap'><div class='eyebrow'>Google Cloud Daily Strategy · 2026-05-26</div><h1>Enterprise AI 전환은 기능 출시보다 운영 구조 전환의 문제다</h1><p class='lead'>최근 24시간 내 GCP 소스 기반으로 Google Cloud 블로그 신호를 읽고, AI·Data·Cloud 플랫폼 전략으로 재구성했다.</p><div class='meta'><span class='pill'>수집 문서 1건</span><span class='pill'>핵심 기술 Google Cloud, Vertex AI, BigQuery, IAM</span><span class='pill'>KST 07:30 cron</span></div></div></header><main>
-<img src='./20260526/images/image-01.png' alt='Enterprise AI 전환 지도' class='blog-image' />
-<section class='box key'><h2>오늘의 한 줄 논지</h2><p>Google Cloud의 최근 메시지는 모델 자체보다 <strong>데이터 기반, 보안 통제, 운영 자동화, 비용/거버넌스</strong>를 결합한 enterprise AI platform으로 무게중심이 이동하고 있음을 보여준다. 한국 기업은 “어떤 모델을 쓸 것인가”보다 “어떤 업무·데이터·권한 단위로 안전하게 확산할 것인가”를 먼저 설계해야 한다.</p><p><strong>근거 범위:</strong> Google Cloud 블로그 일일 전략 HTML 입력 요약 - 20260525. 최근 24시간 내 GCP 소스 기반.</p></section>
-<section><h2>핵심 트렌드 분석</h2><div class='grid'><div class='card trend'><div class='badge'>1</div><div><h3>AI는 데이터 플랫폼 없이는 운영되지 않는다</h3><p>Gemini/Vertex AI 계열의 가치는 BigQuery, Dataplex, Looker, Dataflow 같은 데이터 운영 체계와 묶일 때 커진다. AI PoC보다 데이터 품질·카탈로그·권한 모델이 선행 과제다.</p></div></div><div class='card trend'><div class='badge'>2</div><div><h3>보안은 사후 점검이 아니라 설계 입력이다</h3><p>IAM, Identity-Aware Proxy, Security Command Center, Mandiant 신호는 agentic workflow가 늘수록 identity·logging·review gate가 플랫폼 기본값이 되어야 함을 시사한다.</p></div></div><div class='card trend'><div class='badge'>3</div><div><h3>클라우드 현대화는 AI 확산의 인프라 조건이다</h3><p>GKE, Cloud Run, database modernization은 AI 애플리케이션을 실험에서 운영으로 끌어올리는 배포·관측·확장성 기반이다.</p></div></div></div></section>
-<img src='./20260526/images/image-02.png' alt='기업 적용 로드맵' class='blog-image' />
-<section><h2>기업 적용 관점: 무엇을 해야 하나</h2><div class='grid'><div class='card'><h3>① 업무 포트폴리오 선별</h3><p>고객 응대, 지식 검색, 데이터 분석, 개발 생산성처럼 데이터와 권한 경계가 비교적 명확한 업무부터 시작한다.</p></div><div class='card'><h3>② 플랫폼 표준화</h3><p>모델·데이터·도구·권한·로그의 연결 방식을 표준화하지 않으면 PoC가 부서별 섬으로 남는다.</p></div><div class='card'><h3>③ 거버넌스 내재화</h3><p>검토자, 승인 흐름, 감사 로그, 비용 한도, 실패 대응 runbook을 제품 기능과 함께 설계한다.</p></div><div class='card'><h3>④ 한국 기업 시사점</h3><p>규제 산업·대기업 환경에서는 개인정보/내부정보 통제와 협력사 접근권한 관리가 adoption 속도를 결정한다.</p></div></div></section>
-<section><h2>수집 원문 신호</h2><div class='grid'><article class='source-card'><span> · </span><h3>Google Cloud 블로그 일일 전략 HTML 입력 요약 - 20260525</h3><p></p><a href=''>원문 보기</a></article></div></section>
-<section><h2>서비스/기술 적용 매트릭스</h2><div class='table-wrap'><table><thead><tr><th>블로그 신호</th><th>언급/연관 기술</th><th>도입 전 확인</th></tr></thead><tbody><tr><td>Google Cloud 블로그 일일 전략 HTML 입력 요약 - 20260525</td><td>Google Cloud</td><td>확인 필요: 기능 상태·리전·가격·quota</td></tr></tbody></table></div></section>
-<img src='./20260526/images/image-03.png' alt='거버넌스 리스크 레이더' class='blog-image' />
-<section><h2>리스크·거버넌스 체크포인트</h2><div class='grid'><div class='card'><h3>Identity & Access</h3><p>Agent가 호출할 수 있는 API, 데이터셋, SaaS 도구를 최소권한으로 제한하고, 사람 승인 지점을 명확히 둔다.</p></div><div class='card'><h3>Data Governance</h3><p>민감정보 분류, 학습/검색/로그 저장 범위, 데이터 residency, retention 정책을 PoC 단계부터 문서화한다.</p></div><div class='card'><h3>Cost & Reliability</h3><p>토큰·쿼리·GPU/서빙 비용의 상한선을 업무 단위로 둔다. 장애 시 fallback과 수동 처리 절차가 있어야 한다.</p></div></div></section>
-<section class='box'><h2>실행 전략</h2><ol><li><strong>2주 진단:</strong> AI 후보 업무와 데이터/권한 경계를 inventory화한다.</li><li><strong>4주 PoC:</strong> 한 업무에서 Vertex AI/Gemini 또는 데이터 분석 기능을 제한된 사용자로 검증한다.</li><li><strong>8주 운영화:</strong> IAM, logging, evaluation, cost dashboard, human review를 붙여 production pilot으로 전환한다.</li><li><strong>분기 확산:</strong> 성공한 패턴을 템플릿화해 다른 부서로 복제한다.</li></ol></section>
-<section class='appendix'><h2>이미지 프롬프트 기록</h2><h4>Image Prompt 1</h4><ul><li>목적: 기술 트렌드 맵</li><li>삽입 위치: hero 아래</li><li>image2 prompt: A premium Korean executive technology blog illustration about Google Cloud enterprise AI, data platforms, and cloud modernization. Abstract cloud architecture, Gemini-colored gradients, secure data mesh, no logos, readable Korean visual title “Enterprise AI 전환 지도”, editorial magazine style, 16:9.</li><li>권장 비율: 16:9</li><li>alt 텍스트: 기술 트렌드 맵</li></ul><h4>Image Prompt 2</h4><ul><li>목적: 기업 적용 로드맵</li><li>삽입 위치: 실행 전략 섹션</li><li>image2 prompt: A clean executive infographic illustration in Korean showing a 4-step enterprise adoption roadmap for Google Cloud AI and data: 탐색, PoC, 거버넌스, 확산. Modern cards, cloud/data/security icons, no brand logos, high contrast, 16:9.</li><li>권장 비율: 16:9</li><li>alt 텍스트: 기업 적용 로드맵</li></ul><h4>Image Prompt 3</h4><ul><li>목적: 거버넌스 리스크 레이더</li><li>삽입 위치: 리스크/거버넌스 섹션</li><li>image2 prompt: A strategic risk radar illustration for Korean enterprises adopting cloud AI: IAM, data governance, cost control, observability, compliance. Dark premium background, luminous radar rings, readable Korean labels, no logos, 16:9.</li><li>권장 비율: 16:9</li><li>alt 텍스트: 거버넌스 리스크 레이더</li></ul></section>
-</main><footer><div class='wrap'>Generated by Hermes GCP Blog Monitor · 출처: Google Cloud Blog · 신규성이 불명확한 항목은 “확인 필요”로 표시했습니다.</div></footer></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Google Cloud 전략 브리핑: 에이전트 AI 운영체계로 이동하는 클라우드 | 2026-05-27</title>
+  <meta name="description" content="Google Cloud Blog 수집 데이터를 기반으로 Enterprise AI, Data, Cloud 관점에서 Gemini Enterprise, Data Agent, 보안 거버넌스, 한국 기업 실행 전략을 분석한 일일 전략형 HTML 블로그." />
+  <meta name="keywords" content="Google Cloud, Gemini Enterprise, Vertex AI, Data Agent Kit, Enterprise AI, AI Governance, 한국 기업, 클라우드 전략" />
+  <meta property="og:title" content="Google Cloud 전략 브리핑: 에이전트 AI 운영체계로 이동하는 클라우드" />
+  <meta property="og:description" content="신규 게시물은 없었으나 최근 수집된 GCP 자료를 바탕으로 엔터프라이즈 AI·Data·Cloud 전략을 재구성했습니다." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="./20260527/images/image-01.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
+    :root { --bg:#f6f9fc; --ink:#102033; --muted:#627184; --blue:#1a73e8; --green:#16a765; --violet:#6554c0; --card:#ffffff; --line:#dfe7f1; --soft:#eaf2ff; --dark:#071526; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:'Noto Sans KR', system-ui, -apple-system, Segoe UI, sans-serif; background:var(--bg); color:var(--ink); font-size:17px; line-height:1.72; word-break:keep-all; overflow-wrap:break-word; text-wrap:pretty; }
+    a { color:var(--blue); }
+    .hero { background: radial-gradient(circle at 85% 10%, rgba(26,115,232,.28), transparent 32%), linear-gradient(135deg,#061527 0%,#0a315d 48%,#0f5135 100%); color:#fff; padding:72px 24px 46px; }
+    .hero-inner, main { max-width:1080px; margin:0 auto; }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border:1px solid rgba(255,255,255,.28); border-radius:999px; color:#d7e7ff; font-weight:700; font-size:.88rem; }
+    h1 { font-size:clamp(2.1rem, 5vw, 4.8rem); line-height:1.08; letter-spacing:-.055em; margin:22px 0 16px; max-width:980px; }
+    .lead { font-size:clamp(1.05rem, 2vw, 1.35rem); color:#d9e8fa; max-width:850px; }
+    .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:end; margin-top:34px; }
+    .hero-card { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); border-radius:28px; padding:22px; backdrop-filter: blur(10px); }
+    .status { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; }
+    .stat { background:rgba(255,255,255,.11); border-radius:18px; padding:14px; }
+    .stat b { display:block; font-size:1.45rem; }
+    .blog-image { max-width:100%; height:auto; display:block; border-radius:26px; box-shadow:0 24px 60px rgba(7,21,38,.22); border:1px solid rgba(16,32,51,.12); }
+    main { padding:48px 24px 80px; }
+    section { margin:52px 0; }
+    h2 { font-size:clamp(1.55rem, 3vw, 2.25rem); line-height:1.22; letter-spacing:-.035em; margin:0 0 18px; }
+    h3 { font-size:1.25rem; margin:0 0 10px; }
+    .notice { padding:18px 20px; background:#fff7e6; border:1px solid #ffd18a; border-left:6px solid #fbbc04; border-radius:18px; color:#4b3512; }
+    .keybox { background:linear-gradient(135deg,#eaf2ff,#ffffff); border:1px solid #cfe0ff; padding:26px; border-radius:28px; font-size:1.1rem; box-shadow:0 12px 32px rgba(26,115,232,.08); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:24px; padding:24px; box-shadow:0 12px 34px rgba(7,21,38,.06); min-width:0; }
+    .card .tag { display:inline-block; padding:4px 10px; border-radius:999px; background:var(--soft); color:#174ea6; font-size:.84rem; font-weight:800; margin-bottom:10px; }
+    .quote { font-size:1.35rem; line-height:1.55; font-weight:800; color:#0b3b75; padding:22px 26px; border-left:6px solid var(--blue); background:#fff; border-radius:0 22px 22px 0; }
+    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; background:#fff; border:1px solid var(--line); border-radius:22px; }
+    table { width:100%; border-collapse:collapse; min-width:760px; }
+    th,td { padding:16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+    th { background:#eef5ff; color:#17324f; }
+    .timeline { display:grid; gap:16px; counter-reset:step; }
+    .step { display:grid; grid-template-columns:54px 1fr; gap:16px; align-items:start; background:#fff; border:1px solid var(--line); border-radius:22px; padding:20px; }
+    .step:before { counter-increment:step; content:counter(step); width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:var(--blue); color:#fff; font-weight:900; }
+    .appendix { background:#071526; color:#dce9f8; border-radius:28px; padding:28px; }
+    .appendix pre { white-space:pre-wrap; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.86rem; line-height:1.55; overflow:auto; }
+    footer { color:var(--muted); border-top:1px solid var(--line); padding-top:28px; margin-top:60px; font-size:.94rem; }
+    @media (max-width:768px) {
+      body { font-size:16.5px; line-height:1.68; }
+      .hero { padding:48px 18px 34px; }
+      .hero-grid { grid-template-columns:1fr; }
+      .status { grid-template-columns:1fr; }
+      main { padding:34px 18px 64px; }
+      section { margin:40px 0; }
+      .card, .keybox { padding:20px; border-radius:22px; }
+      .step { grid-template-columns:1fr; }
+      .step:before { width:38px; height:38px; }
+      .blog-image { border-radius:18px; }
+      table { min-width:680px; font-size:.94rem; }
+    }
+    @media (max-width:480px) {
+      body { font-size:16px; }
+      h1 { letter-spacing:-.045em; }
+      .hero-card { padding:18px; border-radius:22px; }
+      .eyebrow { font-size:.78rem; }
+      th,td { padding:12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Google Cloud Daily Strategy · 2026-05-27 KST</span>
+      <h1>새 글은 없지만, 신호는 분명하다: Google Cloud는 “에이전트 운영체계” 경쟁으로 이동 중이다</h1>
+      <p class="lead">오늘 6개 Google Cloud Blog 채널에서 신규 저장 대상은 발견되지 않았습니다. 대신 최근 24시간 내 로컬 수집 자료와 최신 GCP 소스를 바탕으로 Enterprise AI·Data·Cloud 관점의 전략 신호를 재구성했습니다.</p>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <strong>오늘의 한 줄 thesis</strong>
+          <p>Gemini Enterprise, Data Agent Kit, Firestore/Firebase/Cloud SQL, Agent Identity·Gateway 흐름은 클라우드가 “모델 사용”을 넘어 <b>에이전트 실행·데이터 연결·보안 거버넌스</b>를 통합하는 방향으로 진화하고 있음을 보여준다.</p>
+          <div class="status">
+            <div class="stat"><b>6</b><span>확인한 블로그</span></div>
+            <div class="stat"><b>0</b><span>신규 저장 문서</span></div>
+            <div class="stat"><b>확인 필요</b><span>same-day novelty</span></div>
+          </div>
+        </div>
+        <img src="./20260527/images/image-01.png" alt="엔터프라이즈 AI 에이전트 운영체계를 상징하는 클라우드 커맨드 센터 일러스트" class="blog-image" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice"><b>데이터 상태:</b> 이번 실행에서 신규 GCP Markdown은 저장되지 않았습니다. 본문은 `20260423_google-cloud-blog_whats-new-in-gemini-enterprise.md` 등 최근/최신 로컬 GCP 소스를 fallback context로 사용했으며, 당일 신규성은 확인 필요입니다.</div>
+
+    <section>
+      <h2>핵심 트렌드 분석: “에이전트 + 데이터 + 거버넌스”가 하나의 구매 단위가 된다</h2>
+      <div class="keybox">기업 AI 도입의 질문은 “어떤 모델을 쓸 것인가”에서 “어떤 권한으로, 어떤 데이터에 접근해, 어떤 업무를 장시간 실행하고, 누가 감시할 것인가”로 이동하고 있습니다. Google Cloud의 최근 메시지는 Gemini Enterprise를 업무용 챗봇이 아니라 <b>엔터프라이즈 에이전트 운영 플랫폼</b>으로 포지셔닝합니다.</div>
+      <div class="grid" style="margin-top:18px">
+        <article class="card"><span class="tag">AI Agent</span><h3>Gemini Enterprise의 플랫폼화</h3><p>Agent Designer, Skills, long-running agents, Inbox, Projects/Canvas는 현업 자동화와 IT 통제형 개발을 하나의 업무 공간으로 묶으려는 신호입니다.</p></article>
+        <article class="card"><span class="tag">Data Cloud</span><h3>Data Agent Kit과 실행형 분석</h3><p>데이터 분석은 대시보드 조회에서 IDE/CLI/agent workflow 안의 “실행 가능한 데이터 스킬”로 이동합니다. BigQuery·Looker·Dataplex 계층의 의미가 더 커집니다.</p></article>
+        <article class="card"><span class="tag">Security</span><h3>Agent Identity가 필수 통제점</h3><p>Agent Identity, Registry, Gateway는 shadow AI를 managed AI로 전환하는 핵심 계층입니다. IAM과 감사로그 없이는 production agent 확장이 어렵습니다.</p></article>
+        <article class="card"><span class="tag">Cloud App</span><h3>Firebase·Firestore·Cloud SQL의 AI 앱화</h3><p>Vibe-coded app 흐름은 앱 개발이 모델 호출만이 아니라 인증, 데이터 저장, 운영 DB, 배포 자동화까지 묶인 end-to-end 경험이 됨을 보여줍니다.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <img src="./20260527/images/image-02.png" alt="AI 데이터 보안 인프라 트렌드가 실행 전략으로 연결되는 인포그래픽" class="blog-image" />
+    </section>
+
+    <section>
+      <h2>기술 변화의 의미: PoC 도구가 아니라 운영 아키텍처의 재설계</h2>
+      <p class="quote">Long-running agent가 현실화될수록 기업은 prompt 품질보다 execution state, queue, approval, retry, audit, data boundary를 먼저 설계해야 한다.</p>
+      <p>최근 GCP 자료에서 반복되는 메시지는 agent가 단발성 질의응답을 넘어 수 시간~수일 동안 실행되는 업무 주체가 된다는 점입니다. 이 변화는 클라우드 아키텍처에 세 가지 요구를 만듭니다.</p>
+      <div class="grid">
+        <div class="card"><h3>1. 상태 있는 실행 계층</h3><p>agent runtime, sandbox, job state, 실패 재시도, human-in-the-loop checkpoint가 필요합니다.</p></div>
+        <div class="card"><h3>2. 데이터 접근의 정책화</h3><p>BigQuery, Cloud SQL, Firestore, Workspace, 외부 SaaS 접근은 agent별 권한과 목적 기반 정책으로 제한되어야 합니다.</p></div>
+        <div class="card"><h3>3. 관측·평가의 상시화</h3><p>출력 품질뿐 아니라 tool call, 비용, latency, 보안 이벤트, 사용자 개입률을 운영 지표로 추적해야 합니다.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>기업 적용 관점: 도입 우선순위 매트릭스</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>영역</th><th>기회</th><th>먼저 확인할 통제</th><th>한국 기업 체크포인트</th></tr></thead>
+          <tbody>
+            <tr><td>업무 에이전트</td><td>영업/재무/구매/리서치 업무의 장시간 자동화</td><td>Agent Identity, 승인 단계, 실행 로그</td><td>업무 위임 책임과 감사 대응 기준 정의</td></tr>
+            <tr><td>데이터 분석</td><td>Data Agent Kit 기반 self-service analytics</td><td>데이터 카탈로그, row/column 정책, lineage</td><td>개인정보·고객정보의 목적 외 사용 방지</td></tr>
+            <tr><td>앱 개발</td><td>Firebase/Firestore/Cloud SQL 기반 빠른 AI app prototyping</td><td>운영 DB 분리, 테스트 데이터, 배포 권한</td><td>현업 vibe coding과 IT 운영 표준의 충돌 관리</td></tr>
+            <tr><td>보안 거버넌스</td><td>Shadow AI를 managed AI로 전환</td><td>IAM, Gateway, DLP, Security Command Center</td><td>금융·제조·공공 수준의 로그 보존과 접근심사</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>한국 기업 관점 시사점</h2>
+      <div class="grid">
+        <div class="card"><h3>현업 주도와 IT 통제의 동시 설계</h3><p>No-code Agent Designer와 high-code agent는 경쟁 관계가 아니라 역할 분담입니다. 현업은 반복 업무를 정의하고 IT는 connector, IAM, 배포, 감사 체계를 관리해야 합니다.</p></div>
+        <div class="card"><h3>데이터 거버넌스가 AI 성패를 좌우</h3><p>agent가 사내 데이터에 접근할수록 Dataplex/BigQuery 정책, 민감정보 분류, 로그 분석 체계가 “선택 기능”이 아니라 prerequisite이 됩니다.</p></div>
+        <div class="card"><h3>제안서 메시지는 제품 나열보다 운영모델</h3><p>고객 임원에게는 Gemini/Vertex/BigQuery 기능 나열보다 “어떤 업무를 어떤 통제 아래 확산할 것인가”가 더 설득력 있습니다.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <img src="./20260527/images/image-03.png" alt="한국 기업의 에이전트 AI 도입 로드맵과 거버넌스 단계를 보여주는 이미지" class="blog-image" />
+    </section>
+
+    <section>
+      <h2>실행 전략: 30-60-90일 로드맵</h2>
+      <div class="timeline">
+        <div class="step"><div><h3>30일: 작은 PoC와 통제 기준 정의</h3><p>한 부서·한 업무·한 데이터 도메인으로 범위를 제한합니다. 성공 지표는 생산성뿐 아니라 승인률, 오류율, 로그 완전성까지 포함합니다.</p></div></div>
+        <div class="step"><div><h3>60일: 권한·데이터·도구 연결 표준화</h3><p>Agent Identity, IAM role, API gateway, MCP/connector registry, 데이터 분류 정책을 정리해 재사용 가능한 내부 blueprints로 만듭니다.</p></div></div>
+        <div class="step"><div><h3>90일: 운영 확산과 비용/품질 관측</h3><p>업무별 agent portfolio를 만들고, 비용·latency·tool call·보안 이벤트를 주간 운영 리뷰 지표로 관리합니다.</p></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>리스크와 거버넌스 고려사항</h2>
+      <div class="grid">
+        <div class="card"><h3>권한 과다 부여</h3><p>agent는 사람보다 더 빠르게 더 많은 시스템을 호출할 수 있습니다. 최소권한, short-lived credentials, 목적 기반 접근 정책이 필요합니다.</p></div>
+        <div class="card"><h3>데이터 경계 붕괴</h3><p>Workspace, DB, SaaS, 외부 웹이 한 workflow 안에 섞일 때 민감정보의 이동 경로를 추적해야 합니다.</p></div>
+        <div class="card"><h3>책임 소재 불명확</h3><p>agent가 만든 문서·분석·의사결정 제안은 소유자, 승인자, 감사 로그를 함께 남겨야 합니다.</p></div>
+        <div class="card"><h3>비용과 품질의 drift</h3><p>long-running agent는 비용이 누적되고 tool loop가 발생할 수 있습니다. budget guardrail과 evaluation loop를 함께 둬야 합니다.</p></div>
+      </div>
+    </section>
+
+    <section class="appendix">
+      <h2>Image Prompt Log</h2>
+      <pre>Image Prompt 1
+Purpose: Hero visual for an executive Korean blog about Google Cloud enterprise agents and governed AI operating models.
+Insertion: Hero section after title.
+Prompt: Create a premium editorial technology illustration for a Korean executive blog: Google Cloud-inspired enterprise AI command center, multiple autonomous agents represented as luminous nodes coordinating across data, security, cloud infrastructure, and business workflows. No logos, no copyrighted marks. Include subtle Korean headline text inside the image: &quot;엔터프라이즈 AI 운영체계&quot;. Sophisticated blue, white, green, and violet palette, clean depth, boardroom-to-cloud metaphor, highly legible, 16:9.
+Ratio: 16:9
+Alt: 엔터프라이즈 AI 에이전트 운영체계를 상징하는 클라우드 커맨드 센터 일러스트
+
+Image Prompt 2
+Purpose: Infographic visual for trends across AI, data, security, and cloud infrastructure.
+Insertion: Trend analysis section.
+Prompt: Generate a clean Korean business infographic image, not a chart screenshot: four connected pillars labeled in Korean &quot;AI 에이전트&quot;, &quot;데이터 클라우드&quot;, &quot;보안 거버넌스&quot;, &quot;클라우드 인프라&quot; with flowing arrows toward &quot;실행 가능한 전략&quot;. Premium consulting report style, readable Korean labels created within the image, no logos, Google Cloud-inspired but original palette, light background, 16:9.
+Ratio: 16:9
+Alt: AI 데이터 보안 인프라 트렌드가 실행 전략으로 연결되는 인포그래픽
+
+Image Prompt 3
+Purpose: Governance and execution roadmap visual for Korean enterprise adoption.
+Insertion: Execution strategy / risk section.
+Prompt: Create a premium editorial roadmap illustration for Korean enterprises adopting governed agentic AI on cloud. Three stages with Korean labels inside the image: &quot;1. 작은 PoC&quot;, &quot;2. 권한·데이터 통제&quot;, &quot;3. 운영 확산&quot;. Include subtle icons for IAM, audit logs, data warehouse, agent runtime, and human approval. No logos, no brand marks, clean high-end executive blog visual, blue and charcoal with green accents, 16:9.
+Ratio: 16:9
+Alt: 한국 기업의 에이전트 AI 도입 로드맵과 거버넌스 단계를 보여주는 이미지
+</pre>
+    </section>
+
+    <footer>
+      <p><b>수집 근거:</b> Google Cloud Blog Korea, AI & Machine Learning, Data Analytics, Identity & Security, Infrastructure Modernization, Databases. 모든 대상은 RSS discovery 후 HTML listing fallback으로 확인했습니다.</p>
+      <p><b>주의:</b> 오늘 신규 저장 게시물은 0건입니다. 본 분석은 최근 저장/수집된 GCP source Markdown을 기반으로 한 전략 재구성이며 same-day novelty는 확인 필요입니다.</p>
+    </footer>
+  </main>
+</body>
+</html>
