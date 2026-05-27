@@ -1,3 +1,3 @@
-# Design
+# DESIGN.md
 
-Executive Korean blog style with Noto Sans KR, responsive cards, readable typography, mobile-first safety, and generated visual assets.
+Executive Korean technology blog style: wide hero, 960-1120px reading width, cards, responsive tables, Noto Sans KR, strong line-height, and mobile-first fallback.
