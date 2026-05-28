@@ -1,3 +1,3 @@
-# SKILLS.md
+# 자연어 수정 예시
 
-Natural-language edits can ask to: regenerate the daily article, add a new section, replace images, update GitHub Pages, or verify mobile responsiveness.
+오늘 날짜 블로그를 다시 생성해줘. 이미지 경로와 배포본을 함께 갱신해줘.
