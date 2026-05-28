@@ -1,15 +1,3 @@
-# GCP Daily Blog HTML
+# 구글 클라우드 일일 전략 블로그
 
-Daily Korean executive-style HTML blog generated from Google Cloud Blog monitoring.
-
-- Latest standalone output: `/opt/data/out/gcp-daily-blog-20260528.html`
-- Dated source: `src/20260528/index.html`
-- Dated Pages output: `docs/20260528/index.html`
-- Latest Pages entry: `docs/index.html`
-- Source Markdown: `/opt/data/home/brain/sources/gcp/20260527_[IdentitySecurity]Introducing Google AI Threat Defense to help you outpace the adversary.md`
-
-## Run/preview
-
-```bash
-python3 -m http.server 18787 -d docs
-```
+구글 클라우드 블로그 수집 자료를 바탕으로 생성한 한국어 전략형 HTML 블로그 저장소입니다.
