@@ -1,3 +1,3 @@
-# DESIGN.md
+# 디자인 원칙
 
-Executive Korean technology blog style: wide hero, 960-1120px reading width, cards, responsive tables, Noto Sans KR, strong line-height, and mobile-first fallback.
+넓은 상단 영역, 카드형 본문, 모바일 단일 열, 한글 줄바꿈 최적화를 사용합니다.
