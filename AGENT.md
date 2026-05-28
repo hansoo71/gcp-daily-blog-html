@@ -1,6 +1,3 @@
-# AGENT.md
+# 에이전트 작업 지침
 
-- Preserve dated `src/YYYYMMDD/` and `docs/YYYYMMDD/` outputs.
-- Do not place raw copyrighted full article extracts in the public repo. Keep source summaries and links only.
-- For latest `docs/index.html`, rewrite dated image paths so root Pages images load.
-- Keep prompt logs next to each dated HTML.
+표시 텍스트는 한국어로 유지하고, 이미지와 배포본을 함께 갱신합니다. 원문 전체 복사본은 공개 저장소에 넣지 않습니다.
