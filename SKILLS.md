@@ -1,5 +1,1 @@
-# 자연어 수정 예시
-
-- 오늘 블로그의 한국 기업 시사점을 더 강하게 써줘.
-- 표를 더 짧게 만들고 실행 전략을 세 단계로 정리해줘.
-- 날짜별 페이지 이미지를 새 스타일로 교체해줘.
+이 저장소는 gcp-blog-monitoring, html-report-repo-workflow, github-repo-management 절차로 갱신합니다.
