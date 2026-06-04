@@ -1,1 +1,1 @@
-이 저장소는 gcp-blog-monitoring, html-report-repo-workflow, github-repo-management 절차로 갱신합니다.
+이 저장소는 GCP 블로그 Markdown 수집물을 바탕으로 HTML 블로그를 재생성하거나 날짜별 산출물을 추가할 수 있습니다.
