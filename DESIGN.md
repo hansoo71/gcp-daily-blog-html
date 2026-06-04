@@ -1,1 +1,1 @@
-Noto Sans KR 기반 반응형 Executive Blog 스타일. 카드형 섹션, 넓은 히어로, 모바일 1열 스택을 사용합니다.
+Executive Blog 스타일, Noto Sans KR, 반응형 카드 레이아웃, 모바일 우선 가독성을 사용합니다.
