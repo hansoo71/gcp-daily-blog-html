@@ -1,1 +1,4 @@
-이 저장소는 GCP 블로그 Markdown 수집물을 바탕으로 HTML 블로그를 재생성하거나 날짜별 산출물을 추가할 수 있습니다.
+# Skills
+
+- 새 날짜 산출물 추가: `src/YYYYMMDD/`, `docs/YYYYMMDD/`, `docs/index.html`을 동기화합니다.
+- 이미지 자산은 날짜별 `images/` 폴더에 보관하고 HTML 상대경로를 검증합니다.
