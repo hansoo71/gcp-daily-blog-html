@@ -1,1 +1,3 @@
-Executive Blog 스타일, Noto Sans KR, 반응형 카드 레이아웃, 모바일 우선 가독성을 사용합니다.
+# Design
+
+Executive Blog 스타일입니다. 넓은 hero, 960~1120px 본문 폭, 카드형 섹션, 모바일 1열 스택, Noto Sans KR, `word-break: keep-all`을 사용합니다.
