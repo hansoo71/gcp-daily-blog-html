@@ -1,3 +1,1 @@
-# Skills
-
-새 일일 블로그를 추가할 때 `src/YYYYMMDD`, `docs/YYYYMMDD`, `docs/index.html`을 함께 동기화합니다.
+자연어 수정 예시: 오늘 날짜 블로그의 카드 요약을 더 짧게 정리해줘. 이미지 alt 문구를 더 설명적으로 바꿔줘.
