@@ -1,7 +1,10 @@
-# 구글 클라우드 일일 전략 블로그
+# GCP Daily Blog HTML
 
-공식 Google Cloud Blog 수집 데이터를 바탕으로 생성한 한국어 전략형 HTML 블로그입니다.
+구글 클라우드 블로그 모니터링 결과를 한국어 일일 기술 블로그 HTML로 게시하는 정적 저장소입니다.
 
-- 날짜: 2026-06-11
-- 로컬 산출물: `/opt/data/out/gcp-daily-blog-20260611.html`
-- 배포본: `docs/` 및 root fallback
+- 최신 공개본: `docs/index.html`
+- 날짜별 공개본: `docs/20260614/index.html`
+- 원본 작업본: `src/20260614/index.html`
+- 이미지: `docs/20260614/images/`
+
+오늘 입력: `20260612_[DataAnalytics]How the Open Knowledge Format can improve data sharing.md`
