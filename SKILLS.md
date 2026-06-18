@@ -1,3 +1,5 @@
-# 수정 예시
+# SKILLS
 
-새 날짜 산출물을 추가할 때는 날짜별 원본과 공개본, 최신 공개본, 이미지 폴더를 함께 갱신합니다.
+- 새 수집 Markdown을 읽어 전략형 한국어 HTML 블로그로 요약합니다.
+- 이미지 자산은 `src/YYYYMMDD/images`, `docs/YYYYMMDD/images`, root fallback에 복제합니다.
+- GitHub Pages 최신본에서는 이미지 경로를 날짜별 폴더 기준으로 재작성합니다.
