@@ -1,5 +1,5 @@
-# SKILLS
+# 자연어 수정 예시
 
-- 새 수집 Markdown을 읽어 전략형 한국어 HTML 블로그로 요약합니다.
-- 이미지 자산은 `src/YYYYMMDD/images`, `docs/YYYYMMDD/images`, root fallback에 복제합니다.
-- GitHub Pages 최신본에서는 이미지 경로를 날짜별 폴더 기준으로 재작성합니다.
+- "오늘 날짜별 페이지의 리스크 섹션을 더 간결하게 줄여줘"
+- "docs/index.html의 최신 이미지 경로가 날짜별 폴더를 보도록 검증해줘"
+- "모바일에서 표가 카드형으로 보이는지 확인하고 CSS를 보강해줘"
