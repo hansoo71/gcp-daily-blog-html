@@ -1,6 +1,6 @@
-# AGENT
+# 에이전트 작업 규칙
 
-- Markdown 수집 산출물은 LLM Wiki `gcp-blog` collection과 `/opt/data/home/brain/sources/gcp`에 보존합니다.
-- HTML과 이미지는 이 repo와 `/opt/data/out`에만 둡니다.
+- 사용자 가시 텍스트는 한국어 존댓말과 전문 블로그 톤을 유지합니다.
+- 원문 URL과 공식 제품명은 추적성을 위해 필요한 범위에서 보존합니다.
 - `src/YYYYMMDD`, `docs/YYYYMMDD`, `docs/index.html`, root fallback을 함께 동기화합니다.
-- 사용자 가시 텍스트는 한국어를 기본으로 하되 원문 제목·제품명·서비스명·API·CLI·고유명사는 원문 표기를 보존합니다.
+- HTML과 이미지는 노트 저장소가 아니라 이 저장소와 `/opt/data/out`에서 관리합니다.
