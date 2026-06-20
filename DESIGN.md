@@ -1,5 +1,3 @@
-# 디자인 원칙
+# Design
 
-- Executive Blog 스타일의 넓은 히어로, 카드형 섹션, 모바일 1열 스택을 사용합니다.
-- Noto Sans KR 계열, `word-break: keep-all`, 반응형 이미지, 모바일 카드형 표를 유지합니다.
-- 생성 이미지는 텍스트와 로고가 없는 추상 일러스트를 우선합니다.
+Noto Sans KR, executive blog, wide hero, responsive cards, mobile-first readability.
