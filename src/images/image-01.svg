@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12355B"/><stop offset="1" stop-color="#020617"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/></filter></defs>
-<style>.k{font-family:'Apple SD Gothic Neo','Noto Sans CJK KR','Noto Sans KR',sans-serif;fill:#F8FAFC;letter-spacing:-1px}.title{font-size:72px;font-weight:800}.sub{font-size:32px;fill:#DDE7F7}.small{font-size:28px;fill:#E5E7EB}.chip{font-size:26px;fill:#08111F;font-weight:700}</style>
-<rect width="1600" height="900" fill="url(#g)"/><circle cx="1290" cy="180" r="260" fill="#2DD4BF" opacity="0.17"/><circle cx="1320" cy="670" r="180" fill="#60A5FA" opacity="0.12"/>
-<rect x="70" y="78" width="1460" height="744" rx="48" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" filter="url(#shadow)"/>
-<text x="92" y="170" class="k chip" fill="#2DD4BF">구글 클라우드 일일 브리핑 · 2026-06-27</text>
-<text x="92" y="260" class="k title">오늘의 구글 클라우드 신호</text>
-<text x="92" y="310" class="small">• 구글 클라우드 최신 소식과 발표 모음</text><text x="92" y="362" class="small">• Securing agentic AI: What&#x27;s new in VPC Service Controls</text>
-<g transform="translate(1030 335)"><rect width="370" height="260" rx="32" fill="#2DD4BF" opacity="0.92"/><text x="38" y="82" class="k chip">관찰 → 근거 → 시사점</text><text x="38" y="145" class="k chip">인공지능 · 데이터 · 보안</text><text x="38" y="208" class="k chip">확인 필요 항목 분리</text></g>
-<text x="92" y="760" class="k sub">원문 출처 기반으로 생성한 로컬 fallback 이미지입니다.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="핵심 브리핑">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0b57d0"/><stop offset="1" stop-color="#34a853"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="16" stdDeviation="20" flood-opacity=".22"/></filter></defs>
+<rect width="1400" height="800" fill="#f8fbff"/><circle cx="1120" cy="120" r="240" fill="url(#g)" opacity=".18"/><circle cx="160" cy="680" r="260" fill="url(#g)" opacity=".12"/>
+<rect x="95" y="95" width="1210" height="610" rx="44" fill="white" filter="url(#s)"/>
+<rect x="135" y="135" width="1130" height="90" rx="28" fill="url(#g)" opacity=".95"/>
+<text x="170" y="193" font-family="Noto Sans KR, Apple SD Gothic Neo, sans-serif" font-size="34" font-weight="800" fill="white">구글 클라우드 일일 전략 브리핑</text>
+<text x="170" y="330" font-family="Noto Sans KR, Apple SD Gothic Neo, sans-serif" font-size="52" font-weight="900" fill="#102033">핵심 브리핑</text>
+<foreignObject x="170" y="380" width="1020" height="150"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Noto Sans KR, Apple SD Gothic Neo, sans-serif;font-size:30px;line-height:1.45;color:#405064;word-break:keep-all">구글 클라우드 일일 전략 브리핑 핵심 이미지</div></foreignObject>
+<g transform="translate(170,600)"><rect width="280" height="56" rx="28" fill="#eef4ff"/><text x="28" y="37" font-family="Noto Sans KR, sans-serif" font-size="22" font-weight="700" fill="#174ea6">20260628 수집 리포트</text></g>
+</svg>
