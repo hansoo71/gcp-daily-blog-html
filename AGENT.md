@@ -1,5 +1,3 @@
-# Agent Notes
+# 에이전트 운영 규칙
 
-- `src/YYYYMMDD/`는 원본 작업본, `docs/YYYYMMDD/`는 GitHub Pages 배포본입니다.
-- 사용자 가시 텍스트와 접근성 라벨은 한국어로 유지합니다.
-- 이미지 경로는 날짜별 HTML에서 `./images/...`를 사용합니다.
+원문 URL과 수집일을 보존하고, HTML과 이미지 경로를 src/docs 양쪽에 동기화합니다. 민감자료는 저장하지 않습니다.

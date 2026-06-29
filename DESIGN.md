@@ -1,3 +1,3 @@
-# Design
+# 디자인 원칙
 
-Noto Sans KR, executive blog, wide hero, responsive cards, mobile-first readability.
+Noto Sans KR, 반응형 블로그형 레이아웃, 카드형 섹션, 모바일 가독성을 우선합니다.
